@@ -8,6 +8,8 @@ int AlturaUser = int.Parse(Console.ReadLine() ?? "0");
 
 Quadrado Obj = new Quadrado(BaseUser, AlturaUser);
 
+Console.WriteLine($"A Area do quadrado é: {BaseUser * AlturaUser}");
+
 // Obj.Area();
 // Obj.MostarTudo();
 
