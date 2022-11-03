@@ -6,11 +6,10 @@ public class Jogador
     private string Apelido { get; set; }
     private string DataNascimento { get; set; }
     private int Numero { get; set; }
-    private int Qualidade { get; set; }
+    private double Qualidade { get; set; }
     private int CartaoAmarelo { get; set; }
-    private int CartaoVermelho { get; set; }
   
-    public Jogador(int ID, string NOME, string POSICAO, string APELIDO, string DATANASCIMENTO, int NUMERO, int QUALIDADE, int CARTAOAMARELO, int CARTAOVERMELHO)
+    public Jogador(int ID, string NOME, string POSICAO, string APELIDO, string DATANASCIMENTO, int NUMERO, double QUALIDADE, int CARTAOAMARELO)
     {
         this.Id = ID;
         this.Nome = NOME;
@@ -20,19 +19,92 @@ public class Jogador
         this.Numero = NUMERO;
         this.Qualidade = QUALIDADE;
         this.CartaoAmarelo = CARTAOAMARELO;
-        this.CartaoVermelho = CARTAOAMARELO;
+
+        if (QUALIDADE > 100)
+            this.Qualidade = 100;
+
+        else if (Qualidade < 0) 
+            this.Qualidade = 0;
+        
+        else
+            this.Qualidade = QUALIDADE;
+
     }
 
-
-    public string Condicao()
+    public bool Condicao()
     {
-        if (this.CartaoAmarelo >=3 || this.CartaoVermelho>=1)
-            return "Suspenso";
+        if (this.CartaoAmarelo >=3)
+            return false;
         else    
-            return "Tá Pra Jogo";
+            return true;
     }
 
-    public void Mostrar(){
-        Console.WriteLine($"{this.Posicao}: {this.Numero} - {this.Nome} ({this.Apelido}) - {this.DataNascimento} Condição: {this.Condicao}");
+    public void Mostrar()
+    {
+        string cond = this.Condicao() ? "Tá pra jogo" : "Fora do jogo"; // <condicao> ? caso verdadeiro : caso falso
+        Console.WriteLine($"{this.Posicao}: {this.Numero} - {this.Nome} ({this.Apelido}) - {this.DataNascimento} Condição: {cond} Qualidade: {this.Qualidade}\n");
+    }
+
+    public void MostrarTudo()
+    {
+        string cond = this.Condicao() ? "Tá pro Game" : "Fora do jogo"; // <condicao> ? caso verdadeiro : caso falso
+        Console.WriteLine($"Id: {this.Id}\nPosição: {this.Posicao}\nNúmero: {this.Numero}\nNome: {this.Nome}\nApelido: {this.Apelido}\nData de Nascimetno: {this.          DataNascimento}\nCartões: {this.CartaoAmarelo}\nCondição: {cond}\nQualidade: {this.Qualidade}\n");
+    }
+
+    public void AplicarCartao(int numero)
+    {
+        this.CartaoAmarelo += numero;
+    }
+
+    public void AplicarCartaoVermelho()
+    {
+        this.CartaoAmarelo = 3;
+    }
+
+    public void CumprirSuspensao()
+    {
+        this.CartaoAmarelo = 0;
+    }
+
+    public void SofrerLesao()
+    {
+        Random randNum = new Random();
+        int valor = randNum.Next(100);
+        
+        if (valor<=5)
+            this.Qualidade -= (this.Qualidade * 0.15);
+
+        else if(valor<=14 && valor>5)
+            this.Qualidade -= (this.Qualidade * 0.10);
+
+        else if(valor<=29 && valor>14)
+            this.Qualidade -= (this.Qualidade * 0.05);
+
+        else if(valor<=59 && valor>29)
+            this.Qualidade -= 2;
+        
+        else
+            this.Qualidade -= 1;
+    }
+
+        public void Treino()
+    {
+        Random randNum = new Random();
+        int valor = randNum.Next(100);
+        
+        if (valor<=5)
+            this.Qualidade += (this.Qualidade * 0.15);
+
+        else if(valor<=14 && valor>5)
+            this.Qualidade += (this.Qualidade * 0.10);
+
+        else if(valor<=29 && valor>14)
+            this.Qualidade += (this.Qualidade * 0.05);
+
+        else if(valor<=59 && valor>29)
+            this.Qualidade += 2;
+        
+        else
+            this.Qualidade += 1;
     }
 }

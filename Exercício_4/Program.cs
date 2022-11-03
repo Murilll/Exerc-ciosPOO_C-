@@ -1,31 +1,35 @@
 ﻿List<Jogador> Time1 = new List<Jogador>();
-List<Jogador> Time2 = new List<Jogador>();
-List<Jogador> Time3 = new List<Jogador>();
-List<Jogador> Time4 = new List<Jogador>();
-List<Jogador> Time5 = new List<Jogador>();
-
-List<Jogador> listJogador = new List<Jogador>();
-listJogador.Add(Time1);
-
-for (int i = 0; i<5;i++)
+for (int j = 0; j < 11; j++)
 {
-    Console.WriteLine($"Cadastrar {i+1}° Time\n");
-    for (int j = 0; j < 11; j++)
-    {
-        Console.WriteLine("Digite o ID do jogador: ");
-        int IDjogador = int.Parse(Console.ReadLine());
-        Console.WriteLine("Digite o Nome do jogador: ");
-        Console.WriteLine("Digite a posição do jogador: ");
-        Console.WriteLine("Digite o apelido do jogador: ");
-        Console.WriteLine("Digite a data de nascimento do jogador: ");
-        Console.WriteLine("Digite o número: ");
-        Console.WriteLine("Digite a qualidade: ");
-        Console.WriteLine("Quantidade de cartões amarelos: ");
-        Console.WriteLine("Quantidade de cartões vermelhor");
-        
-        // IDUser = 
+    Console.Clear();
 
+    Console.Write($"Digite o ID do {j+1}° Jogador: ");
+    int IDUser = int.Parse(Console.ReadLine() ?? "0");
 
-    }
+    Console.Write($"Digite o Nome do Jogador: ");
+    string NomeUser = Console.ReadLine() ?? "Desconhecido";
 
+    Console.Write($"Digite a Posição do {NomeUser}: ");
+    string PosicaoUser = Console.ReadLine() ?? "Desconhecido";
+
+    Console.Write($"Digite o Apelido do {NomeUser}: ");
+    string ApelidoUser = Console.ReadLine() ?? "Desconhecido";
+
+    Console.Write($"Digite a Data de Nascimento do {NomeUser}: ");
+    string DataUser = Console.ReadLine() ?? "Desconhecido";
+
+    Console.Write($"Digite o Número do {NomeUser}: ");
+    int NumUser = int.Parse(Console.ReadLine() ?? "0");
+
+    Console.Write($"Digite a qualidade do {NomeUser}: ");
+    double QualidadeUser = int.Parse(Console.ReadLine() ?? "0");
+
+    Console.Write($"Digite a Quantidade de Cartões Amarelos o {NomeUser} recebeu: ");
+    int AmareloUser = int.Parse(Console.ReadLine() ?? "0");
+
+    Jogador Player = new Jogador(IDUser, NomeUser, PosicaoUser, ApelidoUser, DataUser, NumUser, QualidadeUser, AmareloUser);
+    Time1.Add(Player);
 }
+
+for (int k = 0; k<Time1.Count(); k++)
+    Time1[k].MostrarTudo();
