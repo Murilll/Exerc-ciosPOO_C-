@@ -1,5 +1,5 @@
 ﻿List<Jogador> Time1 = new List<Jogador>();
-for (int j = 0; j < 11; j++)
+for (int j = 0; j < 2; j++)
 {
     Console.Clear();
 

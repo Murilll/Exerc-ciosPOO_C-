@@ -1,8 +1,8 @@
 public class Livros
 {
-    public string Titulo { get; set; }
-    public int qtdPaginas { get; set; }
-    public int paginasLidas { get; set; }
+    private string Titulo { get; set; }
+    private int qtdPaginas { get; set; } // daria para puxar a quantidade de pg direto se ela não fosse publica
+    private int paginasLidas { get; set; }
 
     public Livros (string TITULO, int QTDPAGINAS, int PAGINASLIDAS)
     {
@@ -15,5 +15,15 @@ public class Livros
     {
         int porcentagem = this.paginasLidas * 100 / this.qtdPaginas;
         return porcentagem;
+    }
+
+    public string TituloDoLivro()
+    { 
+        return this.Titulo;
+    }
+
+    public int Paginas()
+    {
+        return this.qtdPaginas;
     }
 }
