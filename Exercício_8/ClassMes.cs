@@ -1,50 +1,19 @@
-public class DespesasMes
+public class DespesaMes
 {
-    private int mes { get; set; }
-    private float valor { get; set; }
-    public int cpf { get; set; }
+    public int mes { get; set; } // Mês da Despesa
+    private float valor { get; set; } // Valor da Despesa
 
-    public Pessoa(int cpf, int mes, float valor)
-    {
-        this.cpf = cpf;
-        this.mes = mes;
-        this.valor = valor;
-    }
-
-    public int getCPF()
-    {
-        return cpf;
-    }
-
-    public DespesasMes(int mes, float valor)
+    public DespesaMes(int mes, float valor)
     {
         this.mes = mes;
         this.valor = valor;
     }
-
     public int getMes()
     {
         return mes;
     }
-
-    public float getvalor()
+    public float getValor()
     {
         return valor;
-    }
-
-    public class DespesaDia
-    {
-            private int dia;
-
-        public DespesaDia(int dia, int mes, float valor)
-        {
-            super(mes, valor);
-            this.dia = dia;
-        }
-
-        public int getDia()
-        {
-            return dia;
-        }
     }
 }
