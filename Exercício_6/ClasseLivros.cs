@@ -13,7 +13,7 @@ public class Livros
 
     public double VerificarProgresso()
     {
-        int porcentagem = this.paginasLidas * 100 / this.qtdPaginas;
+        double porcentagem = this.paginasLidas * 100.0 / this.qtdPaginas;
         return porcentagem;
     }
 

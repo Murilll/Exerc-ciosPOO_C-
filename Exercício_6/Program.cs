@@ -1,4 +1,4 @@
-﻿Livros livrofavorito = new Livros("O Pequeno Príncipe", 98, 23);
+﻿Livros livrofavorito = new Livros("O Pequeno Príncipe", 200, 50);
 /*
 List<Livros> listLivros = new List<Livros>();
 listLivros.Add(livrofavorito);
